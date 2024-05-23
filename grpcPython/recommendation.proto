@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+
+option go_package = "grpc-go-example/helloworld";
+
+package recommendation;
+
+service RecommendationService {
+    rpc GetRecommendations (RecommendationRequest) returns (RecommendationResponse);
+}
+
+message RecommendationRequest {
+    repeated string tweets = 1;
+    repeated string emotions = 2;
+}
+
+message RecommendationResponse {
+    string summary = 1;
+    string recommendations = 2;
+}
